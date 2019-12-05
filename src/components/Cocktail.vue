@@ -2,8 +2,13 @@
   <div class="about">
     <input id="txtName" @keyup="filterData" v-model="txtInput" type="text" />
     <h1>{{msg}}</h1>
-      <div class="items" v-for='item in filterCocktails' :key='item.first_name'>
-        <div>{{item.strDrink}} {{item.idDrink}}</div>
+      <div class="cocktails" v-for='cocktail in filterCocktails' :key='cocktail'>
+        <ul>
+          <div>{{cocktail.strDrink}}({{cocktail.idDrink}})</div>
+          <div class="cocktails" v-for='(ingredient, index) in cocktail.ingredients' :key='index'>
+            <li>{{ingredient}}</li>
+          </div>
+        </ul>
       </div>
   </div>
 </template>
