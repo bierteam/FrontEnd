@@ -1,20 +1,19 @@
 <template>
   <div id="app">
    <nav class="main-nav">
-      <div class="logo">my.company</div>
       <Burger></Burger>
     </nav>
 
     <Sidebar>
       <ul class="sidebar-panel-nav">
         <li>
-          <a href="#home">Home</a>
+          <a href="/home">Home</a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="/about">About</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a href="/cocktail">Cocktails</a>
         </li>
       </ul>
     </Sidebar>
@@ -64,7 +63,6 @@ html {
   height: 100%;
   overflow: hidden;
 }
-
 body {
   border: 0;
   margin: 0;
@@ -79,24 +77,20 @@ body {
     rgba(249, 248, 113, 1) 100%
   );
 }
-
 .logo {
   align-self: center;
   color: #fff;
   font-weight: bold;
   font-family: "Lato";
 }
-
 .main-nav {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0.8rem;
 }
-
 ul.sidebar-panel-nav {
   list-style-type: none;
 }
-
 ul.sidebar-panel-nav > li > a {
   color: #fff;
   text-decoration: none;
@@ -104,5 +98,4 @@ ul.sidebar-panel-nav > li > a {
   display: block;
   padding-bottom: 0.5em;
 }
-
 </style>
