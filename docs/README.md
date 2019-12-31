@@ -2,8 +2,8 @@
 
 | Branch | Status | Coverage | Quality |
 | --- | --- | --- | --- |
-| Master: | [![Build Status](https://travis-ci.com/bierteam/FrontEnd.svg?branch=master)](https://travis-ci.com/bierteam/FrontEnd) | [![codecov](https://codecov.io/gh/bierteam/FrontEnd/branch/master/graph/badge.svg)](https://codecov.io/gh/bierteam/FrontEnd) | [![codebeat badge](https://codebeat.co/badges/1609fb34-95f2-4952-a55e-6e50061c1521)](https://codebeat.co/projects/github-com-bierteam-FrontEnd-master)
-| Dev: | [![Build Status](https://travis-ci.com/bierteam/FrontEnd.svg?branch=dev)](https://travis-ci.com/bierteam/FrontEnd) | [![codecov](https://codecov.io/gh/bierteam/FrontEnd/branch/dev/graph/badge.svg)](https://codecov.io/gh/bierteam/FrontEnd) | [![codebeat badge](https://codebeat.co/badges/ec79713f-11fe-4176-8df0-16dc0b1aa77d)](https://codebeat.co/projects/github-com-bierteam-FrontEnd-dev)
+| Master: | [![Build Status](https://travis-ci.com/bierteam/FrontEnd.svg?branch=master)](https://travis-ci.com/bierteam/FrontEnd) | [![codecov](https://codecov.io/gh/bierteam/FrontEnd/branch/master/graph/badge.svg)](https://codecov.io/gh/bierteam/FrontEnd) | [![codebeat badge](https://codebeat.co/badges/a527f0f4-c700-4187-b884-c53ca3d43977)](https://codebeat.co/projects/github-com-bierteam-frontend-master)
+| Dev: | [![Build Status](https://travis-ci.com/bierteam/FrontEnd.svg?branch=dev)](https://travis-ci.com/bierteam/FrontEnd) | [![codecov](https://codecov.io/gh/bierteam/FrontEnd/branch/dev/graph/badge.svg)](https://codecov.io/gh/bierteam/FrontEnd) | [![codebeat badge](https://codebeat.co/badges/INSERTDEVUUIDHERE)](https://codebeat.co/projects/github-com-bierteam-frontend-dev)
 
 # FrondEnd
 
