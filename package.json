@@ -19,7 +19,7 @@
     "lint": "standard && vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "0.19.0",
+    "axios": "0.19.1",
     "core-js": "3.6.2",
     "vue": "2.6.11",
     "vue-router": "3.1.3"
