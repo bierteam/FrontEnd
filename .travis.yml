@@ -1,8 +1,5 @@
 # https://docs.travis-ci.com/user/job-lifecycle
 sudo: false
-language: node_js
-node_js:
-  - '12'
 services:
   - docker
 git:
@@ -11,12 +8,6 @@ branches:
   only:
     - gh-pages
     - /.*/
-cache: npm
-# Default install and script stage:
-# https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
-
-after_script:
-  - npm run coverage
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t bierteam/frontend:$TRAVIS_BRANCH .
