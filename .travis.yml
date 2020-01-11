@@ -20,4 +20,4 @@ after_script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t bierteam/frontend:$TRAVIS_BRANCH .
-  - docker push bierteam/pils
+  - docker push bierteam/frontend
