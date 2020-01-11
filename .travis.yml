@@ -1,5 +1,6 @@
 # https://docs.travis-ci.com/user/job-lifecycle
 sudo: false
+language: minimal
 services:
   - docker
 git:
@@ -8,7 +9,7 @@ branches:
   only:
     - gh-pages
     - /.*/
-after_success:
+script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t bierteam/frontend:$TRAVIS_BRANCH .
   - docker push bierteam/frontend
