@@ -1,11 +1,29 @@
 <template>
   <div class="about">
+    <div>
+      <multiselect
+        v-model="selectedIngredients"
+        :options="ingredients"
+        :searchable="true"
+        :multiple="true"
+        :close-on-select="true"
+        :show-labels="false"
+        placeholder="Pick a value"
+        @input="retrieveCocktailsByIngredients"
+      ></multiselect>
+    </div>
+
+    <b>Cocktails I have ingredients for:</b>
+    <div class="personalcocktails" v-for="(cocktail, index) in myCocktails" :key="index">
+      <li>{{cocktail.strDrink}} ({{cocktail.ingredients}})</li>
+    </div>
+
     <input id="txtName" @keyup="filterData" v-model="txtInput" type="text" placeholder="Search.." />
     <div class="cocktails">
       <div class="cocktail" v-for="cocktail in filterCocktails" :key="cocktail.idDrink">
-          <img src="../assets/placeholder.png" />
-          <div>{{cocktail.strDrink}}({{cocktail.idDrink}})</div>
-          <ul>
+        <!-- <img src="../assets/placeholder.png" /> -->
+        <div>{{cocktail.strDrink}}({{cocktail.idDrink}})</div>
+        <ul>
           <div class="cocktail" v-for="(ingredient, index) in cocktail.ingredients" :key="index">
             <li>{{ingredient}}</li>
           </div>
@@ -16,13 +34,18 @@
 </template>
 <script>
 import axios from "axios";
+import Multiselect from "vue-multiselect";
 
 export default {
+  components: { Multiselect },
   data() {
     return {
       txtInput: "",
       filteredCocktails: [],
-      cocktails: []
+      cocktails: [],
+      ingredients: [],
+      selectedIngredients: [],
+      myCocktails: []
     };
   },
   methods: {
@@ -32,6 +55,11 @@ export default {
           cocktail.strDrink.toLowerCase().includes(this.txtInput.toLowerCase())
         );
       }
+    },
+    retrieveCocktailsByIngredients() {
+      axios
+        .post("http://localhost:3000/cocktail/test", this.selectedIngredients)
+        .then(response => (this.myCocktails = response.data));
     }
   },
   computed: {
@@ -46,9 +74,17 @@ export default {
     axios
       .get("http://localhost:3000/cocktail")
       .then(response => (this.cocktails = response.data));
+    axios
+      .get("http://localhost:3000/ingredient")
+      .then(
+        response =>
+          (this.ingredients = response.data.map(obj => obj.ingredient))
+      );
   }
 };
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+
 <style>
 * {
   box-sizing: border-box;
@@ -70,33 +106,31 @@ body {
   padding: 0 4px;
 }
 
-
 .cocktail {
   flex: 25%;
   max-width: 25%;
   padding: 0 4px;
 }
 
-.column img {
+.cocktail img {
   margin-top: 8px;
   vertical-align: middle;
-  width: 100%;
+  /* width: 100%; */
 }
 
-
 @media screen and (max-width: 800px) {
-  .column {
+  .cocktail {
     -ms-flex: 50%;
     flex: 50%;
-    max-width: 50%;
+    /* max-width: 50%; */
   }
 }
 
 @media screen and (max-width: 600px) {
-  .column {
+  .cocktail {
     -ms-flex: 100%;
     flex: 100%;
-    max-width: 100%;
+    /* max-width: 100%; */
   }
 }
 </style>
